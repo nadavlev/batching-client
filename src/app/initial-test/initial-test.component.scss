@@ -1,0 +1,11 @@
+:host {
+  .container {
+    display: flex;
+    flex:1;
+    overflow: auto;
+    flex-direction: column;
+    .generate-button {
+      width: fit-content
+    }
+  }
+}

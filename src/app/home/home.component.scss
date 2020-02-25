@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+  .card-container {
+    background-color: blue($color: #000000);
+    margin: 50px;
+  }
+}
