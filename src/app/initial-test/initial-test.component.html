@@ -1,16 +1,22 @@
 <div class="container">
-  <form (ngSubmit)="onSubmitGenerationRequest()" #generateDataForm="ngForm">
-    <input name="generationQuantity" type="number" [(ngModel)]="generationQuantity">
-    <label id="replace-add-label">Replace Or Add to existing data</label>
-    <mat-radio-group
-      aria-labelledby="replace-add-label"
-      [(ngModel)]="replaceAdd" name="replaceAdd">
-      <mat-radio-button *ngFor="let repAdd of replaceAddValues" [value]="repAdd">
-        {{repAdd}}
-      </mat-radio-button>
-    </mat-radio-group>
-    <button mat-raised-button type="submit" (click)="getData()" color="primary">Generate</button>
-  </form>
+  <div class="jumbotron">
+    <h1>Generate</h1>
+    <form (ngSubmit)="onSubmitGenerationRequest()" #generateDataForm="ngForm" class="generation-form">
+      <label id="replace-add-label">Replace Or Add to existing data</label>
+      <mat-radio-group
+        aria-labelledby="replace-add-label"
+        [(ngModel)]="replaceAdd" name="replaceAdd">
+        <mat-radio-button *ngFor="let repAdd of replaceAddValues" [value]="repAdd">
+          {{repAdd}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field>
+        <mat-label id="generation-quantity">Quantity to generate</mat-label>
+        <input matInput  name="generationQuantity" type="number" [(ngModel)]="generationQuantity" aria-labelledby="generation-quantity">
+      </mat-form-field>
+      <button mat-raised-button type="submit" (click)="getData()" color="primary">Generate</button>
+    </form>
+  </div>
   <table mat-table [dataSource]="dataSource">
     <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}">
       <th mat-header-cell *matHeaderCellDef>{{column}}</th>

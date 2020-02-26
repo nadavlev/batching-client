@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import * as _ from "lodash";
+import { FormControl } from '@angular/forms';
 
 interface ResposeObject {
   data: any;
@@ -16,8 +17,8 @@ export class InitialTestComponent implements OnInit {
   public displayedColumns: string[] = [];
   public dataSource: any = [];
   public generationQuantity: number;
-  public replaceAddValues: string[] = ['reace', 'add'];
-  public replaceAdd: string;
+  public replaceAddValues: string[] = ['replace', 'add'];
+  public replaceAdd: FormControl;
 
   constructor(
     private http: HttpClient
