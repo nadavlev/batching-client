@@ -7,9 +7,11 @@
     .generation-form {
       display: flex;
       flex-direction: column;
-
-      .generate-button {
-        width: fit-content
+      .button-container {
+        flex-direction: row;
+        .generate-button {
+          width: fit-content
+        }
       }
     }
   }

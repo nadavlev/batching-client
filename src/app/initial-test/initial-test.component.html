@@ -14,7 +14,10 @@
         <mat-label id="generation-quantity">Quantity to generate</mat-label>
         <input matInput  name="generationQuantity" type="number" [(ngModel)]="generationQuantity" aria-labelledby="generation-quantity">
       </mat-form-field>
-      <button mat-raised-button type="submit" (click)="getData()" color="primary">Generate</button>
+      <div class="button-container">
+        <button mat-raised-button type="submit" (click)="getData()" color="primary">Show Sample</button>
+        <button mat-raised-button type="submit" (click)="getData(true)" color="primary">Generate And Save</button>
+      </div>
     </form>
   </div>
   <table mat-table [dataSource]="dataSource">

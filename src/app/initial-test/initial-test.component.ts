@@ -32,8 +32,8 @@ export class InitialTestComponent implements OnInit {
 
   }
 
-  public getData() {
-    let url = 'http://localhost:3000/api/generate/' + this.generationQuantity;
+  public getData(save: boolean = false) {
+    let url = 'http://localhost:3000/api/generate/' + this.generationQuantity + '/' + save;
     this.http.get(url).subscribe((res: ResposeObject) => {
 
       if (res?.data?.length) {
