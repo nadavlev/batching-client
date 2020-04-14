@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,13 +9,29 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  totalNumberOfRecords: number = 0;
+
+  constructor(private router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getTotalNumberOfRecords();
   }
 
   public goToInInitialTest() {
     this.router.navigate(['initial']);
+  }
+
+  public goToNaiveTest() {
+    this.router.navigate(['naiveTest']);
+  }
+
+  private getTotalNumberOfRecords() {
+    let url = 'http://localhost:3000/api/getTotalNumberOfRecords';
+
+    this.http.get(url).subscribe((res: Response) => {
+      this.totalNumberOfRecords = res['num'];
+    });
   }
 
 }

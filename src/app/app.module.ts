@@ -10,12 +10,14 @@ import { HttpClientModule} from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { NaiveTestComponent } from './naive-test/naive-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InitialTestComponent,
-    HomeComponent
+    HomeComponent,
+    NaiveTestComponent
 
   ],
   imports: [

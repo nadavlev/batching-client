@@ -1,10 +1,18 @@
 <div class="card-container">
-  <h1 class="mat-display-1">Jackdaws love my big sphinx of quartz.</h1>
+  <h1 class="mat-display-1">Generate and batch</h1>
+  <h2>Current number of records: {{totalNumberOfRecords}}</h2>
   <mat-card>
-    <mat-card-title>Initial Test</mat-card-title>
-    <mat-card-content>Description</mat-card-content>
+    <mat-card-title>Generate data</mat-card-title>
+    <mat-card-content>Generate records that will be retrieved using batching</mat-card-content>
     <mat-card-actions>
       <button mat-raised-button class="btn btn-primary" color="primary" (click)="goToInInitialTest()">Go</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Naive approch</mat-card-title>
+    <mat-card-content>Simply try to get all recods</mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button class="btn btn-primary" color="primary" (click)="goToNaiveTest()">Go</button>
     </mat-card-actions>
   </mat-card>
 </div>
