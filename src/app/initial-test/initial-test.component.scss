@@ -1,17 +1,11 @@
 :host {
-  .container {
+  .generation-form {
     display: flex;
-    flex:1;
-    overflow: auto;
     flex-direction: column;
-    .generation-form {
-      display: flex;
-      flex-direction: column;
-      .button-container {
-        flex-direction: row;
-        .generate-button {
-          width: fit-content
-        }
+    .button-container {
+      flex-direction: row;
+      .generate-button {
+        width: fit-content
       }
     }
   }

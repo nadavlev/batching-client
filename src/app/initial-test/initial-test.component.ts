@@ -1,3 +1,4 @@
+import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import * as _ from "lodash";
@@ -21,7 +22,8 @@ export class InitialTestComponent implements OnInit {
   public replaceAdd: FormControl;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private dataService: DataService
   ) { }
 
   ngOnInit(): void {
@@ -33,28 +35,22 @@ export class InitialTestComponent implements OnInit {
   }
 
   public getData(save: boolean = false) {
-    let url = 'http://localhost:3000/api/generate/' + this.generationQuantity + '/' + save;
-    this.http.get(url).subscribe((res: ResposeObject) => {
-
-      if (res?.data?.length) {
-        this.dataSource = res.data.map( row => {
-          return {
-            ...row,
-            name: row.profile.name,
-            gender: row.profile.gender,
-            location: row.profile.location,
-            website: row.profile.website,
-            picture: row.profile.picture
-          };
-        });
-        this.displayedColumns = Object.keys(this.dataSource[0]);
-
-      }
-    }, err => {
-      console.error(err);
-    });
+    const url = 'http://localhost:3000/api/generate/' + this.generationQuantity + '/' + save;
+    this.http.get(url).subscribe({
+      next: this.handleResponse.bind(this),
+      error: this.handleError.bind(this)
+    }
+  );
   }
 
+  private handleResponse(res) {
+    this.dataSource = this.dataService.tableDataSourceFromResponse(res?.data);
+    this.displayedColumns = Object.keys(this.dataSource[0]);
+  }
+
+  private handleError(err) {
+    console.error(err);
+  }
 
 
 }
