@@ -1,0 +1,23 @@
+:host {
+  .time-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .item-rows {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .total-time-item {
+    flex: 1;
+    background-color: #886fbe;
+
+  }
+  .partial-time-item {
+    flex-grow: 1;
+  }
+}

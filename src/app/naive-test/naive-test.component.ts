@@ -1,6 +1,7 @@
-import { DataService } from './../data.service';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {DataService} from './../data.service';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {TimingObject} from '../timing-object';
 
 @Component({
   selector: 'app-naive-test',
@@ -11,12 +12,14 @@ export class NaiveTestComponent implements OnInit {
 
   public displayedColumns: string[] = [];
   public dataSource: any = [];
+  public timingObject: TimingObject = new TimingObject();
 
   constructor(private http: HttpClient,
-    private dataService: DataService) { }
+              private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.getData()
+    this.timingObject.setPageStart();
+    this.getData();
   }
 
   private getData() {
@@ -29,12 +32,24 @@ export class NaiveTestComponent implements OnInit {
   }
 
   private handleResponse(res) {
-    this.dataSource = this.dataService.tableDataSourceFromResponse(res?.data);
-    this.displayedColumns = Object.keys(this.dataSource[0]);
+    this.timingObject.setDatarecieved();
+    const receivedData = this.dataService.tableDataSourceFromResponse(res?.data);
+    this.timingObject.setDataRendered();
+
+    this.dataSource = receivedData;
+    this.displayedColumns = Object.keys(receivedData[0]);
+
+    setTimeout(() => {
+      this.timingObject.setDataDisplayEnded();
+    }, 0);
   }
 
   private handleError(err) {
     console.error(err);
+  }
+
+  private getCurrentTime() {
+    return (new Date()).getTime();;
   }
 
 }

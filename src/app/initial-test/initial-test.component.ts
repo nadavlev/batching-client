@@ -1,7 +1,6 @@
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import * as _ from "lodash";
 import { FormControl } from '@angular/forms';
 
 interface ResposeObject {

@@ -5,6 +5,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   exports: [
@@ -12,7 +13,8 @@ import {MatInputModule} from '@angular/material/input';
     MatCardModule,
     MatButtonModule,
     MatRadioModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule
   ],
   imports: [
     CommonModule

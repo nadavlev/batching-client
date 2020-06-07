@@ -11,14 +11,15 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NaiveTestComponent } from './naive-test/naive-test.component';
+import { TimingObjectDisplayComponent } from './timing-object-display/timing-object-display.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InitialTestComponent,
     HomeComponent,
-    NaiveTestComponent
-
+    NaiveTestComponent,
+    TimingObjectDisplayComponent,
   ],
   imports: [
     BrowserModule,
