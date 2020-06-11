@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
+  { path: 'naiveTest/:fetchQuantity', component: NaiveTestComponent,  },
   { path: 'naiveTest', component: NaiveTestComponent,  },
   { path: 'initial', component: InitialTestComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

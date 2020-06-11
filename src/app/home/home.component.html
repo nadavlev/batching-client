@@ -8,9 +8,19 @@
       <button mat-raised-button class="btn btn-primary" color="primary" (click)="goToInInitialTest()">Go</button>
     </mat-card-actions>
   </mat-card>
-  <mat-card>
+  <mat-card class="card-item">
     <mat-card-title>Naive approach</mat-card-title>
-    <mat-card-content>Simply try to get all records</mat-card-content>
+    <mat-card-content>
+      <div>
+        Simply try to get all records
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Quantity to fetch</mat-label>
+          <input matInput [(ngModel)]="quantity">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button class="btn btn-primary" color="primary" (click)="goToNaiveTest()">Go</button>
     </mat-card-actions>

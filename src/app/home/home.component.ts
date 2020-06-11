@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   totalNumberOfRecords: number = 0;
   private currentRout: string;
+  public quantity: number;
 
   constructor(private router: Router,
               private http: HttpClient) {
@@ -28,11 +29,11 @@ export class HomeComponent implements OnInit {
   }
 
   public goToNaiveTest() {
-    this.router.navigate(['naiveTest']);
+    this.router.navigate(['naiveTest', this.quantity]);
   }
 
   private getTotalNumberOfRecords() {
-    let url = 'http://localhost:3000/api/getTotalNumberOfRecords';
+    const url = 'http://localhost:3000/api/getTotalNumberOfRecords';
 
     this.http.get(url).subscribe((res: Response) => {
       this.totalNumberOfRecords = res['num'];

@@ -1,10 +1,13 @@
 <div class="time-container" *ngIf="!timingObject.isLoading()">
   <div class="item-rows">
-    <div class="total-time-item">{{timingObject.totalTime}}</div>
+    {{timingObject.totalRecords}} Records fetched
   </div>
   <div class="item-rows">
-    <div class="partial-time-item">{{timingObject.dataLoadTime}}</div>
-    <div class="partial-time-item">{{timingObject.dataRenderingTime}}</div>
-    <div class="partial-time-item">{{timingObject.displayTime}}</div>
+    <div class="total-time-item">{{timingObject.totalTime}} {{timingUnites}}</div>
+  </div>
+  <div class="item-rows">
+    <div class="partial-time-item">Api Get Data {{timingObject.dataLoadTime}} {{timingUnites}}</div>
+    <div class="partial-time-item">Data Rendering {{timingObject.dataRenderingTime}} {{timingUnites}}</div>
+    <div class="partial-time-item">Display Rendering {{timingObject.displayTime }} {{timingUnites}}</div>
   </div>
 </div>

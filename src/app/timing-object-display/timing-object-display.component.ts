@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TimingObject} from '../timing-object';
+import {TIMING_UNITES, TimingObject} from '../timing-object';
 
 @Component({
   selector: 'app-timing-object-display',
@@ -8,7 +8,10 @@ import {TimingObject} from '../timing-object';
 })
 export class TimingObjectDisplayComponent implements OnInit {
   @Input() timingObject: TimingObject;
-  constructor() { }
+  public timingUnites: string;
+  constructor() {
+    this.timingUnites = TIMING_UNITES;
+  }
 
   ngOnInit(): void {
     console.log(this.timingObject);
