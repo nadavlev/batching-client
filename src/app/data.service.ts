@@ -21,4 +21,14 @@ export class DataService {
 
   }
 
+  public getMyUserHeaders(): string[] {
+    return ['_id', 'name', 'gender', 'location', 'website', 'picture', 'facebook', 'password',
+      'passwordResetExpires', 'profile', 'createdAt', 'updatedAt'];
+  }
+
+  public async getTotalNumberOfRecords() {
+    const response = await fetch('http://localhost:3000/api/getTotalNumberOfRecords');
+    return await response.json();
+  }
+
 }

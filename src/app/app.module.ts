@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NaiveTestComponent } from './naive-test/naive-test.component';
 import { TimingObjectDisplayComponent } from './timing-object-display/timing-object-display.component';
+import { ConstantBatchSizeComponent } from './constant-batch-size/constant-batch-size.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TimingObjectDisplayComponent } from './timing-object-display/timing-obj
     HomeComponent,
     NaiveTestComponent,
     TimingObjectDisplayComponent,
+    ConstantBatchSizeComponent,
   ],
   imports: [
     BrowserModule,

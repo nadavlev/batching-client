@@ -18,7 +18,7 @@ export class NaiveTestComponent implements OnInit, OnDestroy{
   public timingObject: TimingObject = new TimingObject();
   public fetchQuantity: number;
   private timingObjectEvents: Subscription;
-  private isLoading: boolean = true;
+  public isLoading = true;
 
   constructor(private http: HttpClient,
               private dataService: DataService,
@@ -27,7 +27,7 @@ export class NaiveTestComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.timingObject.description = 'Naive';
-    this.getTotalNumberOfRecords().then(response => {
+    this.dataService.getTotalNumberOfRecords().then(response => {
       this.fetchQuantity = response.num;
       this.timingObject.setPageStart();
 
@@ -54,12 +54,6 @@ export class NaiveTestComponent implements OnInit, OnDestroy{
       }
     );
   }
-
-  private async getTotalNumberOfRecords() {
-    const response = await fetch('http://localhost:3000/api/getTotalNumberOfRecords');
-    return await response.json();
-  }
-
 
   private handleResponse(res) {
     this.timingObject.setDatarecieved();
