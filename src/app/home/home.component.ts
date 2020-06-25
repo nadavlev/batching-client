@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {NavigationEnd, Router, RouterEvent} from '@angular/router';
+import {TABLE_TYPES} from '../naive-test/naive-test.component';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,13 @@ export class HomeComponent implements OnInit {
   totalNumberOfRecords: number = 0;
   private currentRout: string;
   public quantity: number;
+  public tableType: TABLE_TYPES;
+  public batchSize: number;
 
   constructor(private router: Router,
               private http: HttpClient) {
 
     this.router.events.subscribe(this.routerEvent);
-
   }
 
   ngOnInit(): void {
@@ -29,7 +31,11 @@ export class HomeComponent implements OnInit {
   }
 
   public goToNaiveTest() {
-    this.router.navigate(['naiveTest', this.quantity]);
+    this.router.navigate(['naive-test', this.quantity, this.tableType]);
+  }
+
+  public goToConstantBatchSize() {
+    this.router.navigate(['constant-batch-size', this.batchSize]);
   }
 
   private getTotalNumberOfRecords() {
@@ -46,6 +52,10 @@ export class HomeComponent implements OnInit {
         console.log(`current route ${this.currentRout}`);
       }
 
+  }
+
+  get tableTypes() {
+    return TABLE_TYPES;
   }
 
 }

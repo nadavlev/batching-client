@@ -1,20 +1,41 @@
-<div class="container" *ngIf="!isLoading">
+<div class="tables-container" *ngIf="!isLoading">
+
   <div class="display-row">
     <app-timing-object-display [timingObject]="timingObject"></app-timing-object-display>
   </div>
-  <div class="display-row">
-    <table mat-table [dataSource]="dataSource">
-      <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}">
-        <th mat-header-cell *matHeaderCellDef>{{column}}</th>
-        <td mat-cell *matCellDef="let element">{{element[column]}}</td>
-      </ng-container>
+  <div *ngIf="tableType === tableTypes.JSON" class="display-row"><!-- *ngIf="tableType === tableTypes.JSON" -->
+    <div class="display-row-data-table">
+      {{data}}
+    </div>
+  </div>
+  <div *ngIf="tableType === tableTypes.MAT_TABLE" class="display-row"><!--  -->
+    <div class="display-row-data-table">
+      <table mat-table [dataSource]="data">
+        <ng-container *ngFor="let column of matTableDisplayedColumns; index as i" matColumnDef="{{column}}">
+          <th mat-header-cell *matHeaderCellDef>{{column}}</th>
+          <td mat-cell *matCellDef="let element">{{element[column]}}</td>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+        <tr mat-header-row *matHeaderRowDef="matTableDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: matTableDisplayedColumns;"></tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="tableType == tableTypes.NGX_DATATABLE" class="display-row"> <!-- -->
+    <ngx-datatable [rows]="data" [columns]="ngxTableDisplayHeaders" class="display-row-data-table"> </ngx-datatable>
+  </div>
+  <div *ngIf="tableType === tableTypes.AG_GRID" class="display-row"> <!--  -->
+    <ag-grid-angular
+
+      class="ag-theme-alpine display-row-ag-table"
+      [rowData]="data"
+      [columnDefs]="ag_columns"
+    >
+    </ag-grid-angular>
   </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="isLoading">
   <div class="display-row">
     <img src="../../assets/loading.gif" height="512" width="512"/></div>
 </div>
+

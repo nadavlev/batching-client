@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home.component';
 import { NaiveTestComponent } from './naive-test/naive-test.component';
 import { TimingObjectDisplayComponent } from './timing-object-display/timing-object-display.component';
 import { ConstantBatchSizeComponent } from './constant-batch-size/constant-batch-size.component';
+import {MatSelectModule} from '@angular/material/select';
+import {AgGridModule} from 'ag-grid-angular';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ConstantBatchSizeComponent } from './constant-batch-size/constant-batch
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    AgGridModule.withComponents([]),
+    NgxDatatableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

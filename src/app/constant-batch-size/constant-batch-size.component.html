@@ -1,4 +1,4 @@
-<div class="container" *ngIf="!isLoading">
+<div class="tables-container" *ngIf="!isLoading">
   <div calss="display-row">
     Batch Size: {{batchSize}}
   </div>
@@ -6,18 +6,16 @@
     <app-timing-object-display [timingObject]="timingObject"></app-timing-object-display>
   </div>
   <div class="display-row">
-    <table mat-table [dataSource]="dataSource">
-      <ng-container *ngFor="let column of displayedColumns" matColumnDef="{{column}}">
-        <th mat-header-cell *matHeaderCellDef>{{column}}</th>
-        <td mat-cell *matCellDef="let element">{{element[column]}}</td>
-      </ng-container>
+    <ag-grid-angular
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+      class="ag-theme-alpine display-row-ag-table"
+      [rowData]="dataSource"
+      [columnDefs]="displayedColumns"
+    >
+    </ag-grid-angular>
   </div>
 </div>
-<div class="container">
+<div class="container" *ngIf="isLoading">
   <div class="display-row">
     <img src="../../assets/loading.gif" height="512" width="512"/></div>
 </div>

@@ -1,4 +1,4 @@
-<div>
+<div class="main-div">
   <mat-toolbar>
     <div class="top-menu-item">
       <a routerLink="/home" routerLinkActive="active-link">Home</a>
@@ -7,11 +7,13 @@
       <a routerLink="/initial" routerLinkActive="active-link">Generate Data</a>
     </div>
     <div class="top-menu-item">
-      <a routerLink="/naiveTest/" routerLinkActive="active-link">Initial Naive Test</a>
+      <a routerLink="/naive-test/" routerLinkActive="active-link">Initial Naive Test</a>
     </div>
     <div class="top-menu-item">
       <a routerLink="/constant-batch-size/" routerLinkActive="active-link">Constant Batch Size</a>
     </div>
   </mat-toolbar>
-  <router-outlet></router-outlet>
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
 </div>

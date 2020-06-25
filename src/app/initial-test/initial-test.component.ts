@@ -43,8 +43,8 @@ export class InitialTestComponent implements OnInit {
   }
 
   private handleResponse(res) {
-    this.dataSource = this.dataService.tableDataSourceFromResponse(res?.data);
-    this.displayedColumns = Object.keys(this.dataSource[0]);
+    this.dataSource = this.dataService.tableDataSourceFromResponse(res);
+    this.displayedColumns = this.dataService.getMyUserHeaders();
   }
 
   private handleError(err) {

@@ -19,10 +19,36 @@
           <mat-label>Quantity to fetch</mat-label>
           <input matInput [(ngModel)]="quantity">
         </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a data table</mat-label>
+          <mat-select [(ngModel)]="tableType">
+            <mat-option value="{{tableTypes.JSON}}" selected>Json</mat-option>
+            <mat-option value="{{tableTypes.MAT_TABLE}}" selected>Material</mat-option>
+            <mat-option value="{{tableTypes.NGX_DATATABLE}}" >NGX-Data-Table</mat-option>
+            <mat-option value="{{tableTypes.AG_GRID}}" >AG grid</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button class="btn btn-primary" color="primary" (click)="goToNaiveTest()">Go</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="card-item">
+    <mat-card-title>Constant batch size</mat-card-title>
+    <mat-card-content>
+      <div>
+        Request the data in batches, with the same size.
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Batch size</mat-label>
+          <input matInput [(ngModel)]="batchSize">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button class="btn btn-primary" color="primary" (click)="goToConstantBatchSize()">Go</button>
     </mat-card-actions>
   </mat-card>
 </div>

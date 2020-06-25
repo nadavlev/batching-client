@@ -1,10 +1,22 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-.container {
+.tables-container {
   display: flex;
   flex:1;
   overflow: auto;
   flex-direction: column;
+  align-items: center;
+
+  .display-row {
+    width: -webkit-fill-available;
+    .display-row-data-table {
+
+    }
+    .display-row-ag-table {
+      width: inherit;
+      height: 500px;
+    }
+  }
 }
 
 .active-link {
@@ -14,3 +26,17 @@
 .top-menu-item {
   margin: 5px 15px 5px 15px;
 }
+
+.main-div {
+  height: 100%;
+}
+
+.router-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  height: 100%;
+}
+
+

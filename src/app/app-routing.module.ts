@@ -8,7 +8,8 @@ import {ConstantBatchSizeComponent} from './constant-batch-size/constant-batch-s
 
 const routes: Routes = [
   { path: 'naiveTest/:fetchQuantity', component: NaiveTestComponent,  },
-  { path: 'naiveTest', component: NaiveTestComponent },
+  { path: 'naive-test/:fetchQuantity/:table_type', component: NaiveTestComponent },
+  { path: 'naive-test', component: NaiveTestComponent },
   { path: 'constant-batch-size', component: ConstantBatchSizeComponent},
   { path: 'constant-batch-size/:batchSize', component: ConstantBatchSizeComponent},
   { path: 'initial', component: InitialTestComponent },

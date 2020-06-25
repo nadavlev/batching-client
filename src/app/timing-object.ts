@@ -8,6 +8,7 @@ export class Timing {
   _displayTime: number;
   _totalTime: number;
   _description: string;
+  _timePerRecord: number;
 }
 
 export const TIMING_UNITES = 'Milis';
@@ -63,6 +64,7 @@ export class TimingObject {
     this.timing._dataRenderTime = this.dataRendered - this.dataReceived;
     this.timing._displayTime = this.dataDisplayEnded - this.dataRendered;
     this.timing._totalTime = this.dataDisplayEnded - this.pageStart;
+    this.timing._timePerRecord = this.timing._totalRecords > 0 ? this.timing._totalTime / this.timing._totalRecords : 0;
     this.observer.next(this.timing);
   }
 
